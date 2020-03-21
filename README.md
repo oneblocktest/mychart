@@ -44,6 +44,10 @@
 ```code
     npm start
 ```
+* **构建方法**
+```code
+    npm run build
+```
 ## 目前具体实现功能
 * 启用blockstack身份认证
 * 可自动获取coingecko部分虚拟币价格，根据录入仓位信息，进行计算显示
