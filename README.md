@@ -10,10 +10,10 @@
 * **数据变现** 实现生产数据演示与销售为一体，插件开发盈利。
 
 ## 流程图
-![流程图](./mypic/mychart.png)
+![流程图](https://raw.githubusercontent.com/oneblocktest/mychart/master/mypic/mychart.png)
 
 ## 实例图
-![实例图](./mypic/mychartDEMO.jpg)
+![实例图](https://raw.githubusercontent.com/oneblocktest/mychart/master/mypic/mychartDEMO.jpg)
 
 ## 需求设计
 * **数据隐私性保护**
