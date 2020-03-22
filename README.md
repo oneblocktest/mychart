@@ -13,7 +13,7 @@
 ![流程图](https://github.com/oneblocktest/mychart/raw/master/mypic/mychart.png)
 
 ## 实例图
-![实例图](ttps://github.com/oneblocktest/mychart/raw/master/mypic/mychartDEMO.jpg)
+![实例图](https://github.com/oneblocktest/mychart/raw/master/mypic/mychartDEMO.jpg)
 
 ## 需求设计
 * **数据隐私性保护**
