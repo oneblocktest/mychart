@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import ReactEcharts from "echarts-for-react";
 
 class Mchart extends Component {
-  constructor(props) {
+/*   constructor(props) {
     super(props);
-  };
+    //this.state
+  }; */
 
   getOption = (props) => {
     const newdata = this.props.characters

@@ -13,9 +13,10 @@ export const ME_FILENAME = 'mychart.json'
 export const SUBJECTS_FILENAME = 'subjects.json'
 
 class Appok extends Component {
-  constructor(props) {
+/*   constructor(props) {
     super(props);
-  };
+    //this.state
+  }; */
 
   state = {
     characters: [],
@@ -45,9 +46,8 @@ class Appok extends Component {
   }
 
   render() {
-    //const { userSession } = this.props;
-
-    const { characters } = this.state;
+  
+   const { characters } = this.state;
     return (
       <div className="container-fluid">
         <div className="row-fluid">
@@ -153,7 +153,7 @@ class Appok extends Component {
 
   saveMe(me) {
     const { userSession } = this.props;
-    this.setState(me, { savingMe: true })
+    this.setState( {savingMe: true })
     let test = JSON.stringify(me);
     console.log(test);
     const options = { encrypt: true }
@@ -171,7 +171,7 @@ class Appok extends Component {
         if (content) {
           const me = JSON.parse(content)
           let loaddata=[];
-          if(this.state.pricedata!= null){
+          if(this.state.pricedata != null){
               for(let i=0;i<me.length;i++){
                 let test={
                   coin:"",

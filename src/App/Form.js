@@ -10,7 +10,7 @@ class Form extends Component {
            coin:'',
            value:'',
            price:'',
-           valuedata:''
+          valuedata:''
         };
 
         this.state = this.initialState;
@@ -27,7 +27,6 @@ class Form extends Component {
     onFormSubmit = (event) => {
      
         event.preventDefault();
-        
         this.props.handleSubmit(this.state);
         this.setState(this.initialState);
 
@@ -39,14 +38,14 @@ class Form extends Component {
 
         return (
             <form onSubmit={this.onFormSubmit}>
-                <label for="date">coin:</label>
+                <label htmlFor="coin">coin:</label>
                 <input 
                     type="text" 
                     name="coin" 
                     id="coin"
                     value={coin} 
                     onChange={this.handleChange} /><br />
-                <label for="value">value:</label>
+                <label htmlFor="value">value:</label>
                 <input 
                     type="text" 
                     name="value" 

@@ -77,8 +77,13 @@
 * gaia在线保存功能以及加密，数据自由搬迁
 * 支持仓位信息图表功能
 
-##已知BUG存在
-* 点击`saveme`无法自动刷新
+## 已知BUG存在
+* 点击`saveme`无法自动刷新  
+   *  
+  ```
+  saveMe（）中，修改this.setState( {me,savingMe: true })为this.setState( {savingMe: true })）错误消失  
+  // 猜测是me的变量名问题
+  ```
 * 获取coin价格如果没有正常完成，则无法载入 or 录入  
 
 ## 下一步准备实现功能
