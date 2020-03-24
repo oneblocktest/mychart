@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^7.2.1",
     "blockstack": "^19.3.0",
     "bootstrap": "^3.4.1",
+    "echarts": "^4.7.0",
+    "echarts-for-react": "^2.0.15-beta.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0"

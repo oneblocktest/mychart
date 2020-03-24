@@ -10,10 +10,10 @@
 * **数据变现** 实现生产数据演示与销售为一体，插件开发盈利。
 
 ## 流程图
-![流程图](https://github.com/oneblocktest/mychart/raw/master/mypic/mychart.png)
+![流程图](./mypic/mychart.png)
 
 ## 实例图
-![实例图](https://github.com/oneblocktest/mychart/raw/master/mypic/mychartDEMO.jpg)
+![实例图](./mypic/mychartDEMO.png)
 
 ## 需求设计
 * **数据隐私性保护**
@@ -32,7 +32,7 @@
 * **数据存储**：`blocstack.gaia`、`IPFS`
 
 ## 目前进度
- ### var=0
+ ### var=DEMO
 
 ## 使用测试方法
 
@@ -74,9 +74,14 @@
 ```
 * 说明录入过程中目前请输入coin全名
   * 比特币请输入`bitcoin`,非**BTC**
+* gaia在线保存功能以及加密，数据自由搬迁
+* 支持仓位信息图表功能
+
+##已知BUG存在
+* 点击`saveme`无法自动刷新
+* 获取coin价格如果没有正常完成，则无法载入 or 录入  
 
 ## 下一步准备实现功能
-* 私人数据的加密存储与解密显示
-* 录入信息的图像显示
 * 建立简易API接口
+* 其他插件开发
 

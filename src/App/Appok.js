@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
-//import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import Table from './Table.js';
-//import { render } from '@testing-library/react';
 import Form from './Form.js';
 import { AppConfig } from 'blockstack'
-//import { UserSession } from 'blockstack'
-//import { Table } from 'react-bootstrap';
+import Mchart from "./Mchart.js";
+
 
 
 export const appConfig = new AppConfig(['store_write', 'publish_data'])
-
 export const ME_FILENAME = 'mychart.json'
 export const SUBJECTS_FILENAME = 'subjects.json'
 
@@ -25,9 +21,9 @@ class Appok extends Component {
     characters: [],
     pricedata: [],
     savingMe: false,
-    // savingKingdown: false,
     redirectToMe: false,
-    mydata: []
+    option: {}
+
 
   };
 
@@ -36,7 +32,7 @@ class Appok extends Component {
     character.price = this.state.pricedata[character.coin].usd
     character.valuedata = character.price * character.value
     this.setState({ characters: [...this.state.characters, character] });
-   // this.getmydata()
+ 
   }
   removeCharacter = index => {
     const { characters } = this.state
@@ -71,6 +67,7 @@ class Appok extends Component {
             </div>
             <div className="row-fluid">
               <div className="col-md-6" >
+              <Mchart  characters={characters} />
               </div>
               <div className="col-md-12">
                 <h3>Add New</h3>
@@ -79,13 +76,13 @@ class Appok extends Component {
                   <Form handleSubmit={this.handleSubmit} />
                 </div>
                 <div>
-            {/*       <button
+                  <button
                     className="btn btn-primary btn-lg"
-                    id="saveme"
-                    onClick={this.saveMe(this.state.mydata)}
+                    id="savemefile"
+                    onClick={()=>this.saveMe(this.state.characters)}
                   >
                     saveme
-          </button> */}
+          </button>
                 </div>
               </div>
             </div>
@@ -100,10 +97,12 @@ class Appok extends Component {
 
   componentWillMount() {
     this.getpirce();
-  //  this.loadMe();
-
+    this.loadMe();
+    
   }
 
+
+ 
   getpirce() {
     const coins = [
       "bitcoin",
@@ -147,25 +146,17 @@ class Appok extends Component {
       .then(data => {
         this.setState({ pricedata: data })  ////赋值到本地数据
         console.log(this.state.pricedata)
-
       });
   }
-/*   getmydata(){
-    let bigmydata=this.state.characters;
-    let mdata={};
-    for(let i=0;i<bigmydata.length;i++){
-        mdata[i].coin=bigmydata[i].coin;
-        mdata[i].value=bigmydata[i].value;
-    }
-    this.setState({mydata:mdata})
-  }
+
+
 
   saveMe(me) {
     const { userSession } = this.props;
     this.setState(me, { savingMe: true })
     let test = JSON.stringify(me);
     console.log(test);
-    const options = { encrypt: false }
+    const options = { encrypt: true }
     userSession.putFile(ME_FILENAME, JSON.stringify(me), options)
       .finally(() => {
         this.setState({ savingMe: false, redirectToMe: false })
@@ -174,22 +165,39 @@ class Appok extends Component {
 
   loadMe() {
     const { userSession } = this.props;
-    const options = { decrypt: false }
+    const options = { decrypt: true }
     userSession.getFile(ME_FILENAME, options)
       .then((content) => {
         if (content) {
           const me = JSON.parse(content)
-          this.setState({ characters:me, redirectToMe: false })
+          let loaddata=[];
+          if(this.state.pricedata!= null){
+              for(let i=0;i<me.length;i++){
+                let test={
+                  coin:"",
+                  value:"",
+                  price:"",
+                  valuedata:""
+                }
+                test.coin=me[i].coin;
+                test.value=me[i].value;
+                test.price=this.state.pricedata[test.coin].usd
+                test.valuedata=test.value * test.price
+                loaddata.push(test);
+              }
+            this.setState({ characters:loaddata, redirectToMe: false })
+          }
+
+          
         } else {
           const me = null
-          this.setState({ characters:me,redirectToMe: true })
+          this.setState({ character:me,redirectToMe: true })
         }
       })
-  } */
+  } 
 
 
-
-}
+  }
 
 
 export default Appok;
