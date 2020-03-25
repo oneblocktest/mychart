@@ -97,7 +97,7 @@ class Appok extends Component {
 
   componentWillMount() {
     this.getpirce();
-    this.loadMe();
+    
     
   }
 
@@ -145,6 +145,7 @@ class Appok extends Component {
       .then(response => response.json())//解析为Promise
       .then(data => {
         this.setState({ pricedata: data })  ////赋值到本地数据
+        this.loadMe();
         console.log(this.state.pricedata)
       });
   }
