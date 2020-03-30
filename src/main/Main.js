@@ -12,11 +12,8 @@ export const appConfig = new AppConfig(['store_write', 'publish_data'])
 export const ME_FILENAME = 'mychart.json'
 export const SUBJECTS_FILENAME = 'subjects.json'
 
-class Appok extends Component {
-/*   constructor(props) {
-    super(props);
-    //this.state
-  }; */
+class Main extends Component {
+
 
   state = {
     characters: [],
@@ -24,7 +21,6 @@ class Appok extends Component {
     savingMe: false,
     redirectToMe: false,
     option: {}
-
 
   };
 
@@ -145,8 +141,7 @@ class Appok extends Component {
       .then(response => response.json())//解析为Promise
       .then(data => {
         this.setState({ pricedata: data })  ////赋值到本地数据
-        this.loadMe();
-        console.log(this.state.pricedata)
+        this.loadMe();   
       });
   }
 
@@ -201,4 +196,4 @@ class Appok extends Component {
   }
 
 
-export default Appok;
+export default Main;
